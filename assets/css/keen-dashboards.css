@@ -4,7 +4,7 @@
  */
 
 body.application {
-  background: #f2f2f2;
+  background: #000000;
   padding: 60px 20px 0;
 }
 body.application > .container-fluid {
@@ -27,8 +27,8 @@ body.application hr {
 
 
 .navbar-inverse {
-  background-color: #3d4a57;
-  border-color: #333;
+  background-color: #211F1F;
+  border-color: #000;
 }
 .navbar-inverse .navbar-nav > li > a,
 .navbar .navbar-brand {
@@ -49,13 +49,13 @@ body.application hr {
 }
 
 .chart-wrapper {
-  background: #fff;
-  border: 1px solid #e2e2e2;
+  background: #211F1F;
+  border: 1px solid #000;
   border-radius: 3px;
   margin-bottom: 10px;
 }
 .chart-wrapper .chart-title {
-  border-bottom: 1px solid #d7d7d7;
+  border-bottom: 1px solid #211F1F;
   color: #666;
   font-size: 14px;
   font-weight: 200;
@@ -70,8 +70,8 @@ body.application hr {
 }
 
 .chart-wrapper .chart-notes {
-  background: #fbfbfb;
-  border-top: 1px solid #e2e2e2;
+  background: #211F1F;
+  border-top: 1px solid #211F1F;
   color: #808080;
   font-size: 12px;
   padding: 8px 10px 5px;

@@ -31,8 +31,10 @@
 
                 // Set chart options
                 var options = {
+                    backgroundColor: '211F1F',
+                    legendTextStyle: {color: '#fff'},
                     'width':400,
-                    'height':250};
+                    'height':200};
 
                 // Instantiate and draw our chart, passing in some options.
                 var chart = new google.visualization.PieChart($elm[0]);
@@ -58,6 +60,8 @@
         ]);
 
         var options = {
+            backgroundColor: '211F1F',
+            legendTextStyle: {color: '#fff'},
             curveType: 'function',
             legend: { position: 'bottom' }
         };
@@ -102,11 +106,10 @@
           </div>
           <div class="chart-stage">
             <div id="grid-1-1">
-                <div id="curve_chart" style="width: 900px; height: 250px"></div>
+                <div id="curve_chart" style="width: 900px; height: 200px"></div>
             </div>
           </div>
           <div class="chart-notes">
-            Notes about this chart
           </div>
         </div>
       </div>
@@ -121,7 +124,6 @@
               </div>
         </div>
           <div class="chart-notes">
-            Notes about this chart
           </div>
         </div>
       </div>
@@ -135,13 +137,11 @@
           </div>
           <div class="chart-stage">
               <ul class="fa-ul">
-                  <div class="panel-data"><li><i class="fa fa-book"></i> 28 books</li>
+                  <div class="panel-data"><li><i class="fa fa-book"></i>  28 books</li>
                   </div>
               </ul>
-
           </div>
           <div class="chart-notes">
-            Notes about this chart
           </div>
         </div>
       </div>
@@ -151,10 +151,12 @@
             # Days Exercised Last Year
           </div>
           <div class="chart-stage">
-            <img data-src="holder.js/100%x120/white">
+              <ul class="fa-ul">
+                  <div class="panel-data"><li><i class="fa fa-trophy"></i>  36 days</li>
+                  </div>
+              </ul>
           </div>
           <div class="chart-notes">
-            Notes about this chart
           </div>
         </div>
       </div>
@@ -164,10 +166,12 @@
             # Pals Grew With Last Year
           </div>
           <div class="chart-stage">
-            <img data-src="holder.js/100%x120/white">
+              <ul class="fa-ul">
+                  <div class="panel-data"><li><i class="fa fa-users"></i>  10 pals</li>
+                  </div>
+              </ul>
           </div>
           <div class="chart-notes">
-            Notes about this chart
           </div>
         </div>
       </div>
@@ -181,7 +185,6 @@
             <img data-src="holder.js/100%x120/white">
           </div>
           <div class="chart-notes">
-            Notes about this chart
           </div>
         </div>
       </div>
@@ -194,7 +197,6 @@
             <img data-src="holder.js/100%x120/white">
           </div>
           <div class="chart-notes">
-            Notes about this chart
           </div>
         </div>
       </div>
@@ -207,17 +209,11 @@
             <img data-src="holder.js/100%x120/white">
           </div>
           <div class="chart-notes">
-            Notes about this chart
           </div>
         </div>
       </div>
     </div>
   </div>
-
-
-    <hr>
-
-    <p class="small text-muted">Built with &#9829; by <a href="https://keen.io">Keen IO</a></p>
 
   </div>
 
