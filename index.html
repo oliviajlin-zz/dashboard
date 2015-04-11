@@ -4,8 +4,10 @@
 <script type="text/javascript" src="http://www.google.com/jsapi?ext.js"></script>
 <head>
   <title>Layouts &raquo; Hero-Thirds</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="assets/lib/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/keen-dashboards.css" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
 <script type='text/javascript'>
@@ -52,7 +54,7 @@
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
             ['Year', 'Parents', 'Brother'],
-            ['2015',  9, 3],
+            ['2015',  9, 3]
         ]);
 
         var options = {
@@ -129,10 +131,14 @@
       <div class="col-sm-6 col-md-4">
         <div class="chart-wrapper">
           <div class="chart-title">
-            # Books Read After Graduating College
+            # Books Read From Start of College to Now
           </div>
           <div class="chart-stage">
-            <img data-src="holder.js/100%x120/white">
+              <ul class="fa-ul">
+                  <div class="panel-data"><li><i class="fa fa-book"></i> 28 books</li>
+                  </div>
+              </ul>
+
           </div>
           <div class="chart-notes">
             Notes about this chart
