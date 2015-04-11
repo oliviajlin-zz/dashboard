@@ -46,7 +46,25 @@
 
 </script>
 
+<script type="text/javascript">
+    google.setOnLoadCallback(drawChart);
 
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Year', 'Parents', 'Brother'],
+            ['2015',  9, 3],
+        ]);
+
+        var options = {
+            curveType: 'function',
+            legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+    }
+</script>
 <body class="application">
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
@@ -82,7 +100,7 @@
           </div>
           <div class="chart-stage">
             <div id="grid-1-1">
-                <div id="chart-05"></div>
+                <div id="curve_chart" style="width: 900px; height: 250px"></div>
             </div>
           </div>
           <div class="chart-notes">
