@@ -1,12 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="google-chart-sample">
+<script type="text/javascript" src="http://code.angularjs.org/1.1.0/angular.min.js"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi?ext.js"></script>
 <head>
   <title>Layouts &raquo; Hero-Thirds</title>
   <link rel="stylesheet" type="text/css" href="assets/lib/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/keen-dashboards.css" />
 </head>
-<body class="application">
 
+<script type='text/javascript'>
+
+    var app = angular.module('myApp', []);
+    app.controller('MyCtrl', function($scope) {
+        $scope.name = "Name"
+    });
+    app.directive('chart', function() {
+        return {
+            restrict: 'A',
+            link: function($scope, $elm, $attr) {
+                // Create the data table.
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Topping');
+                data.addColumn('number', 'Slices');
+                data.addRows([
+                    ['Completed Items', 21],
+                    ['Incomplete Items', 52]
+                ]);
+
+                // Set chart options
+                var options = {
+                    'width':400,
+                    'height':250};
+
+                // Instantiate and draw our chart, passing in some options.
+                var chart = new google.visualization.PieChart($elm[0]);
+                chart.draw(data, options);
+            }
+        }
+    });
+
+    google.setOnLoadCallback(function() {
+        angular.bootstrap(document.body, ['myApp']);
+    });
+    google.load('visualization', '1', {packages: ['corechart']});
+
+</script>
+
+
+<body class="application">
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -37,11 +78,11 @@
       <div class="col-sm-8">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Cell Title
+            # Quality Days Spent with Family
           </div>
           <div class="chart-stage">
             <div id="grid-1-1">
-              <img data-src="holder.js/100%x240/white/text:#grid-1-1">
+                <div id="chart-05"></div>
             </div>
           </div>
           <div class="chart-notes">
@@ -52,11 +93,13 @@
       <div class="col-sm-4">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Cell Title
+            Bucket List Items Complete
           </div>
           <div class="chart-stage">
-            <img data-src="holder.js/100%x240/white">
-          </div>
+              <div ng-controller = 'MyCtrl'>
+                  <div chart></div>
+              </div>
+        </div>
           <div class="chart-notes">
             Notes about this chart
           </div>
@@ -68,7 +111,7 @@
       <div class="col-sm-6 col-md-4">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Cell Title
+            # Books Read After Graduating College
           </div>
           <div class="chart-stage">
             <img data-src="holder.js/100%x120/white">
@@ -81,7 +124,7 @@
       <div class="col-sm-6 col-md-4">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Cell Title
+            # Days Exercised Last Year
           </div>
           <div class="chart-stage">
             <img data-src="holder.js/100%x120/white">
@@ -94,7 +137,7 @@
       <div class="col-sm-6 col-md-4">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Cell Title
+            # Pals Grew With Last Year
           </div>
           <div class="chart-stage">
             <img data-src="holder.js/100%x120/white">
@@ -108,7 +151,7 @@
       <div class="col-sm-6 col-md-4">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Cell Title
+            # Failures Made
           </div>
           <div class="chart-stage">
             <img data-src="holder.js/100%x120/white">
@@ -121,7 +164,7 @@
       <div class="col-sm-6 col-md-4">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Cell Title
+            # Helpful Projects Completed
           </div>
           <div class="chart-stage">
             <img data-src="holder.js/100%x120/white">
@@ -134,7 +177,7 @@
       <div class="col-sm-6 col-md-4">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Cell Title
+            # Estimated Days Left
           </div>
           <div class="chart-stage">
             <img data-src="holder.js/100%x120/white">
@@ -164,6 +207,6 @@
 
   <script type="text/javascript" src="assets/lib/keen-js/dist/keen.min.js"></script>
   <script type="text/javascript" src="assets/js/meta.js"></script>
-
+  <script type="text/javascript" src="dashboard.js"></script>
 </body>
 </html>
