@@ -23,8 +23,8 @@
             link: function($scope, $elm, $attr) {
                 // Create the data table.
                 var data = new google.visualization.DataTable();
-                data.addColumn('string', 'Complete');
-                data.addColumn('number', 'Incomplete');
+                data.addColumn('string', 'Task');
+                data.addColumn('number', 'NumberOfItems');
                 data.addRows([
                     ['Completed Items', 24],
                     ['Incomplete Items', 50]
@@ -53,19 +53,32 @@
 </script>
 
 <script type="text/javascript">
-    google.setOnLoadCallback(drawChart);
+    google.setOnLoadCallback(drawLine);
 
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-            ['Year', 'Parents', 'Brother'],
-            ['2015',  67, 3]
+    function drawLine() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'Year');
+        data.addColumn('number', 'Parents');
+        data.addColumn('number', 'Brother');
+        data.addRows([
+            [2015, 37, 3]
         ]);
 
         var options = {
             backgroundColor: '211F1F',
             legendTextStyle: {color: '#fff'},
             curveType: 'function',
-            legend: { position: 'bottom' }
+            colors:['#3A5B7D', '#2D8FF8'],
+            hAxis: {
+                title: 'Year',
+                titleTextStyle: {color: '#fff'},
+                textStyle: {color: '#fff'}
+            },
+            vAxis: {
+                title: '# of Days',
+                titleTextStyle: {color: '#fff'},
+                textStyle: {color: '#fff'}
+            }
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
@@ -99,8 +112,6 @@
                 title: 'Skill',
                 titleTextStyle: {color: '#fff'},
                 textStyle: {color: '#fff'}
-
-
             }
         };
 
@@ -143,7 +154,7 @@
           </div>
           <div class="chart-stage">
             <div id="grid-1-1">
-                <div id="curve_chart" style="width: 900px; height: 200px"></div>
+                <div id="curve_chart" style="width: 800px; height: 200px"></div>
             </div>
           </div>
           <div class="chart-notes">
