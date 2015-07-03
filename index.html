@@ -3,13 +3,14 @@
 <script type="text/javascript" src="http://code.angularjs.org/1.1.0/angular.min.js"></script>
 <script type="text/javascript" src="http://www.google.com/jsapi?ext.js"></script>
 <head>
-  <title>The Dashboard of Olivia Lin</title>
+  <title>Dashboard | The Dashboard of Olivia Lin</title>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="keen-dashboards.css" />
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
+<!-- Google Charts -->
 <script type='text/javascript'>
 
     var app = angular.module('myApp', []);
@@ -71,6 +72,43 @@
         chart.draw(data, options);
     }
 </script>
+
+<script type="text/javascript">
+    google.setOnLoadCallback(drawBar);
+
+    function drawBar() {
+
+        var data = google.visualization.arrayToDataTable([
+            ['Skill', '2015 # of Skills'],
+            ['Fun', 8],
+            ['Career', 2]
+        ]);
+
+        var options = {
+            width:400,
+            height:200,
+            backgroundColor: '211F1F',
+            legendTextStyle: {color: '#fff'},
+            hAxis: {
+                title: '# of Skills',
+                titleTextStyle: {color: '#fff'},
+                textStyle: {color: '#fff'}
+            },
+            vAxis: {
+                title: 'Skill',
+                titleTextStyle: {color: '#fff'},
+                textStyle: {color: '#fff'}
+
+
+            }
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('bar_chart'));
+        chart.draw(data, options);
+    }
+</script>
+
+<!-- Dashboard starts here -->
 <body class="application">
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
@@ -84,7 +122,7 @@
         <a class="navbar-brand" href="../">
           <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
-        <a class="navbar-brand" href="./">Layouts &raquo; Hero Thirds</a>
+        <a class="navbar-brand" href="./">Dashboard | The Dashboard of Olivia Lin</a>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
@@ -102,7 +140,7 @@
       <div class="col-sm-8">
         <div class="chart-wrapper">
           <div class="chart-title">
-            # Quality Days Spent with Family
+            # Quality Days Spent with Family Last Year
           </div>
           <div class="chart-stage">
             <div id="grid-1-1">
@@ -182,7 +220,7 @@
             # New Skills Learned Last Year
           </div>
           <div class="chart-stage">
-            <img data-src="holder.js/100%x120/white">
+                  <div id="bar_chart" style="width: 900px; height: 200px"></div>
           </div>
           <div class="chart-notes">
           </div>
@@ -203,10 +241,12 @@
       <div class="col-sm-6 col-md-4">
         <div class="chart-wrapper">
           <div class="chart-title">
-            # Estimated Days Left
+            # Estimated Time Left
           </div>
           <div class="chart-stage">
-            <img data-src="holder.js/100%x120/white">
+              <div class="panel-data">
+                  <iframe src="https://freesecure.timeanddate.com/countdown/i4qtuvhd/n224/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cacfff/cpcfff/pc211f1f/tcfff/fs100/szw576/szh243/iso2073-05-31T00:23:00" allowTransparency="true" frameborder="0" width="261" height="52"></iframe>
+              </div>
           </div>
           <div class="chart-notes">
           </div>
