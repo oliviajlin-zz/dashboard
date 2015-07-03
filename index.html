@@ -3,7 +3,7 @@
 <script type="text/javascript" src="http://code.angularjs.org/1.1.0/angular.min.js"></script>
 <script type="text/javascript" src="http://www.google.com/jsapi?ext.js"></script>
 <head>
-  <title>Layouts &raquo; Hero-Thirds</title>
+  <title>The Dashboard of Olivia Lin</title>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="keen-dashboards.css" />
@@ -22,11 +22,11 @@
             link: function($scope, $elm, $attr) {
                 // Create the data table.
                 var data = new google.visualization.DataTable();
-                data.addColumn('string', 'Topping');
-                data.addColumn('number', 'Slices');
+                data.addColumn('string', 'Complete');
+                data.addColumn('number', 'Incomplete');
                 data.addRows([
-                    ['Completed Items', 21],
-                    ['Incomplete Items', 52]
+                    ['Completed Items', 24],
+                    ['Incomplete Items', 50]
                 ]);
 
                 // Set chart options
@@ -56,7 +56,7 @@
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
             ['Year', 'Parents', 'Brother'],
-            ['2015',  9, 3]
+            ['2015',  67, 3]
         ]);
 
         var options = {
@@ -179,7 +179,7 @@
       <div class="col-sm-6 col-md-4">
         <div class="chart-wrapper">
           <div class="chart-title">
-            # Failures Made
+            # New Skills Learned Last Year
           </div>
           <div class="chart-stage">
             <img data-src="holder.js/100%x120/white">
