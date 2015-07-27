@@ -1,3 +1,5 @@
-#Welcome to dbproj!
+#Welcome to olivia's dashboard
 
-dbproj was based on: https://github.com/keen/dashboards
+dashboard was based on: https://github.com/keen/dashboards
+
+tools used: angularJS, html/css, bootstrap, font awesome, keen dashboards, google charts
