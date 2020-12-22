@@ -38,7 +38,8 @@
         // Set chart options
         var options = {
           backgroundColor: '#211F1F',
-          slices: {0: {color: '#408BD3'},1: {color: '#4a4a4a'},2: {color: '#4a4a4a'}, 3: {color: '#4a4a4a'}}
+          slices: {0: {color: '#408BD3'},1: {color: '#4a4a4a'}},
+          legend: { position: "none" }
         };
 
         // Instantiate and draw our chart, passing in some options.
@@ -75,40 +76,8 @@
       }
   </script>
 
-    <script type="text/javascript">
-        google.setOnLoadCallback(drawBar);
-
-        function drawBar() {
-
-            var data = google.visualization.arrayToDataTable([
-                ['Skill', '2015 # of Skills', {role: 'style'}],
-                ['Fun', 3, 'color: #3A5B7D'],
-                ['Career', 2, 'color: #2D8FF8']
-            ]);
-
-            var options = {
-                width:400,
-                height:200,
-                backgroundColor: '#211F1F',
-                legendTextStyle: {color: '#FFFFFF'},
-                hAxis: {
-                    title: '# of Skills',
-                    titleTextStyle: {color: '#FFFFFF'},
-                    textStyle: {color: '#FFFFFF'}
-                },
-                vAxis: {
-                    title: 'Skill',
-                    titleTextStyle: {color: '#FFFFFF'},
-                    textStyle: {color: '#FFFFFF'}
-                }
-            };
-
-            var chart = new google.visualization.BarChart(document.getElementById('bar_chart'));
-            chart.draw(data, options);
-        }
-    </script>
-
     <!-- Dashboard starts here -->
+    <!--1st row-->
     <body class="application">
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">
@@ -141,71 +110,46 @@
           <div class="col-sm-4">
             <div class="chart-wrapper">
               <div class="chart-title"> 8% of the day is spent driving</div>
-              <div class="chart-stage">
                   <div id="chart_div"></div>
-                 </div>
-            </div>
-              <div class="chart-notes">
               </div>
             </div>
           </div>
-        </div>
 
+<!--2nd row-->
         <div class="row">
           <div class="col-sm-6 col-md-4">
             <div class="chart-wrapper">
-              <div class="chart-title">
-              </div>
-              <div class="chart-stage">
                   <ul class="fa-ul">
                       <div class="panel-data"><li>Read <b>8 books</b></li>
                       </div>
                   </ul>
-              </div>
-              <div class="chart-notes">
-              </div>
             </div>
           </div>
+
           <div class="col-sm-6 col-md-4">
             <div class="chart-wrapper">
-              <div class="chart-title">
-                # Days Exercised Last Year
-              </div>
-              <div class="chart-stage">
                   <ul class="fa-ul">
-                      <div class="panel-data"><li><i class="fa fa-trophy"></i> 36 days</li>
+                      <div class="panel-data"><li><i class="fa fa-trophy"></i></li>
                       </div>
                   </ul>
-              </div>
-              <div class="chart-notes">
-              </div>
             </div>
           </div>
+
           <div class="col-sm-6 col-md-4">
             <div class="chart-wrapper">
-              <div class="chart-title">
-                # Pals Grew With Last Year
-              </div>
-              <div class="chart-stage">
                   <ul class="fa-ul">
-                      <div class="panel-data"><li><i class="fa fa-users"></i> 13 pals</li>
+                      <div class="panel-data"><li><i class="fa fa-users"></i></li>
                       </div>
                   </ul>
-              </div>
-              <div class="chart-notes">
-              </div>
             </div>
           </div>
-    <!-- end of three -->
+<!--3rd row-->
           <div class="col-sm-6 col-md-4">
             <div class="chart-wrapper">
               <div class="chart-title">
-                # New Skills Learned Last Year
+                Breathe. Let go. And remind yourself that this very moment is the only one you know you have for sure.
               </div>
-              <div class="chart-stage">
-                      <div id="bar_chart" style="width: 900px; height: 200px"></div>
-              </div>
-              <div class="chart-notes">
+              <div class="chart-notes"> - Oprah Winfrey
               </div>
             </div>
           </div>
