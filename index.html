@@ -40,8 +40,7 @@
         // Set chart options
         var options = {
           backgroundColor: '#211F1F',
-          'width':400,
-          'height':300
+          slices: {0: {color: '#408BD3'},1: {color: '#4a4a4a'},2: {color: '#4a4a4a'}, 3: {color: '#4a4a4a'}}
         };
 
         // Instantiate and draw our chart, passing in some options.
@@ -50,82 +49,33 @@
       }
       </script>
 
-    <!-- Google Charts -->
-    <script type='text/javascript'>
+      <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ["Timeline", "", { role: "style" } ],
+            ["Up to 2020", 70, "#4a4a4a"],
+            ["2021", 4, "#408BD3"]
+          ]);
 
-        var app = angular.module('myApp', []);
-        app.controller('MyCtrl', function($scope) {
-            $scope.name = "Name"
-        });
-        app.directive('chart', function() {
-            return {
-                restrict: 'A',
-                link: function($scope, $elm, $attr) {
-                    // Create the data table.
-                    var data = new google.visualization.DataTable();
-                    data.addColumn('string', 'Task');
-                    data.addColumn('number', 'NumberOfItems');
-                    data.addRows([
-                        ['Completed Items', 33],
-                        ['Incomplete Items', 49]
-                    ]);
+          var view = new google.visualization.DataView(data);
+          view.setColumns([0, 1,
+                          { calc: "stringify",
+                            sourceColumn: 1,
+                            type: "string",
+                            role: "annotation" },
+                          2]);
 
-                    // Set chart options
-                    var options = {
-                        backgroundColor: '#211F1F',
-                        legendTextStyle: {color: '#FFFFFF'},
-                        slices: [{color: '#3A5B7D'}, {color: '#2D8FF8'}],
-                        'width':400,
-                        'height':200};
-
-                    // Instantiate and draw our chart, passing in some options.
-                    var chart = new google.visualization.PieChart($elm[0]);
-                    chart.draw(data, options);
-                }
-            }
-        });
-
-        google.setOnLoadCallback(function() {
-            angular.bootstrap(document.body, ['myApp']);
-        });
-        google.load('visualization', '1', {packages: ['corechart']});
-
-    </script>
-
-    <script type="text/javascript">
-        google.setOnLoadCallback(drawLine);
-
-        function drawLine() {
-            var data = new google.visualization.DataTable();
-            data.addColumn('number', 'Year');
-            data.addColumn('number', 'Parents');
-            data.addColumn('number', 'Brother');
-            data.addRows([
-                [2015, 37, 8]
-            ]);
-
-            var options = {
-                backgroundColor: '#211F1F',
-                legendTextStyle: {color: '#FFFFFF'},
-                curveType: 'function',
-                colors:['#3A5B7D', '#2D8FF8'],
-                hAxis: {
-                    title: 'Year',
-                    titleTextStyle: {color: '#FFFFFF'},
-                    textStyle: {color: '#FFFFFF'}
-                },
-                vAxis: {
-                    title: '# of Days',
-                    titleTextStyle: {color: '#FFFFFF'},
-                    textStyle: {color: '#FFFFFF'}
-                }
-            };
-
-            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-            chart.draw(data, options);
-        }
-    </script>
+          var options = {
+            backgroundColor: '#211F1F',
+            bar: {groupWidth: "100%"},
+            legend: { position: "none" }
+          };
+          var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+          chart.draw(view, options);
+      }
+  </script>
 
     <script type="text/javascript">
         google.setOnLoadCallback(drawBar);
@@ -167,13 +117,7 @@
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
               <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="../">
-              <span class="glyphicon glyphicon-chevron-left"></span>
-            </a>
             <a class="navbar-brand" href="./">Olivia Lin - Dashboard</a>
           </div>
           <div class="navbar-collapse collapse">
@@ -186,32 +130,22 @@
       </div>
 
       <div class="container-fluid">
-
         <div class="row">
           <div class="col-sm-8">
             <div class="chart-wrapper">
               <div class="chart-title">
-                8% of the day is spent driving
+                Targeting to complete 4% of the bucket list in 2021
               </div>
-              <div class="chart-stage">
-                <div id="grid-1-1">
-                    <div id="chart_div" style="width: 800px; height: 200px"></div>
-                </div>
-              </div>
-              <div class="chart-notes">
-              </div>
+                 <div id="barchart_values"></div>  
             </div>
           </div>
 
           <div class="col-sm-4">
             <div class="chart-wrapper">
-              <div class="chart-title">
-                Bucket List Items Complete
-              </div>
+              <div class="chart-title"> 8% of the day is spent driving</div>
               <div class="chart-stage">
-                  <div ng-controller = 'MyCtrl'>
-                      <div chart></div>
-                  </div>
+                  <div id="chart_div"></div>
+                 </div>
             </div>
               <div class="chart-notes">
               </div>
