@@ -52,27 +52,27 @@ body.application hr {
   background: #211F1F;
   border: 1px solid #000;
   border-radius: 3px;
-  margin-bottom: 10px;
+  margin-bottom: 2px;
 }
 .chart-wrapper .chart-title {
   border-bottom: 1px solid #211F1F;
-  color: #666;
+  color: #fff;
   font-size: 14px;
-  font-weight: 200;
-  padding: 7px 10px 4px;
+  font-weight: 800;
+  padding: 2px 2px 1px;
 }
 
 .chart-wrapper .chart-stage {
   /*min-height: 240px;*/
   overflow: hidden;
-  padding: 5px 10px;
+  padding: 1px 2px;
   position: relative;
 }
 
 .chart-wrapper .chart-notes {
   background: #211F1F;
   border-top: 1px solid #211F1F;
-  color: #808080;
+  color: #ffffff;
   font-size: 12px;
-  padding: 8px 10px 5px;
+  padding: 2px 1px 2px;
 }
